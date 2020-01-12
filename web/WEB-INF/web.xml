@@ -5,4 +5,30 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd"
            version="4.0">
 
+    <!--配置当前Web应用的初始化参数-->
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>james2</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>AServlet</servlet-name>
+        <!--配置Servlet的初始化参数,且该节点必选在load-on-startup前面-->
+        <servlet-class>cn.zq.web1.AServlet</servlet-class>
+        <init-param>
+            <param-name>user</param-name>
+            <param-value>james</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>1234</param-value>
+        </init-param>
+<!--        <load-on-startup>2</load-on-startup>-->
+    </servlet>
+
+    <!--除了注解映射以外，也可以用web.xml配置-->
+    <servlet-mapping>
+        <servlet-name>AServlet</servlet-name>
+        <url-pattern>/AServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
